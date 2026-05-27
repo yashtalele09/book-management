@@ -69,6 +69,23 @@ const BookDetails = () => {
         );
     }
 
+    if (!book) {
+        return (
+            <div className="min-h-screen py-16 flex items-center justify-center">
+                <div className="text-center">
+                    <h1 className="text-4xl font-bold text-white">Book not found</h1>
+                    <button
+                        onClick={() => navigate(-1)}
+                        className="mt-4 px-6 py-3 rounded-xl flex items-center gap-2 text-white font-medium bg-cyan-500 hover:bg-cyan-600 transition"
+                    >
+                        <ArrowLeft size={18} />
+                        Back to Library
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <section
             className="min-h-screen py-16"
