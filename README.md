@@ -1,73 +1,102 @@
-# React + TypeScript + Vite
+📚 Book Management System (React + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple Book Management System built using React + TypeScript + Vite that allows users to create, read, update, delete, search, and filter books using a mock API.
 
-Currently, two official plugins are available:
+🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+👉 Add your deployed link here
 
-## React Compiler
+https://your-live-app-url.com
+📌 Features
+📖 Book Management
+Add new books
+Edit existing books
+Delete books
+View book details
+🔍 Search & Filter
+Search by title, author, genre, publication year
+Filter by genre
+Dynamic filtering with instant results
+📄 Pagination
+Books displayed in paginated format
+Clean UI with page navigation
+🎨 UI Features
+Modern glassmorphism design
+Responsive layout (mobile + desktop)
+Modal-based Add/Edit form
+Image preview support (thumbnail URL)
+⚡ API Integration
+CRUD operations using MockAPI
+Axios-based service layer
+🛠️ Tech Stack
+React.js
+TypeScript
+Vite
+Axios
+React Router DOM
+Lucide Icons
+Tailwind CSS (or custom styling)
+📁 Project Structure
+src/
+│
+├── components/
+│   ├── AddUpdatePanel.tsx
+│   ├── InputField.tsx
+│   ├── BookCard.tsx
+│
+├── pages/
+│   ├── Homepage/
+│   │   ├── BookListing.tsx
+│   │   ├── Hero.tsx
+│
+├── services/
+│   ├── BookApi.ts
+│
+├── types/
+│   ├── book.ts
+│
+├── App.tsx
+├── main.tsx
+⚙️ Setup Instructions
+1️⃣ Clone Repository
+git clone https://github.com/your-username/book-management-system.git
+2️⃣ Install Dependencies
+npm install
+3️⃣ Run Development Server
+npm run dev
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+App will run at:
 
-## Expanding the ESLint configuration
+http://localhost:5173
+🌐 Mock API Setup
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+This project uses MockAPI.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Example endpoint:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+https://6a15993091ff9a63de08771c.mockapi.io/book
+API Methods
+Method	Endpoint	Description
+GET	/book	Get all books
+POST	/book	Add new book
+PUT	/book/:id	Update book
+DELETE	/book/:id	Delete book
+📦 Book Data Model
+export interface Book {
+  id: string | number;
+  title: string;
+  author: string;
+  genre: string;
+  publicationYear: number;
+  thumbnail: string;
+  description?: string;
+}
+🧠 Key Learnings
+React component architecture
+State management using hooks
+API integration with Axios
+CRUD operations
+TypeScript type safety
+Form handling and validation
+UI/UX design principles
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
