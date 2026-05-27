@@ -112,10 +112,10 @@ const BookDetails = () => {
                             >
                                 <img
                                     src={
-                                        book.thumbnail ||
+                                        book?.thumbnail ||
                                         "https://placehold.co/600x900"
                                     }
-                                    alt={book.title}
+                                    alt={book?.title || "Book Cover"}
                                     className="w-full h-[600px] object-cover"
                                 />
                             </div>
@@ -131,7 +131,7 @@ const BookDetails = () => {
                                     color: "#22d3ee",
                                 }}
                             >
-                                {book.genre}
+                                {book?.genre || "Unknown Genre"}
                             </span>
 
                             <h1
@@ -141,23 +141,23 @@ const BookDetails = () => {
                                         "clamp(2rem,4vw,4rem)",
                                 }}
                             >
-                                {book.title}
+                                {book?.title || "Untitled Book"}
                             </h1>
 
                             <div className="flex items-center gap-3 text-slate-300 mb-6">
                                 <User size={18} />
-                                <span>{book.author}</span>
+                                <span>{book?.author || "Unknown Author"}</span>
                             </div>
 
                             <div className="flex flex-wrap gap-5 mb-8">
                                 <div className="flex items-center gap-2 text-slate-400">
                                     <Calendar size={18} />
-                                    {book.publicationYear}
+                                    {book?.publicationYear || "Unknown Year"}
                                 </div>
 
                                 <div className="flex items-center gap-2 text-slate-400">
                                     <Tag size={18} />
-                                    {book.genre}
+                                    {book?.genre || "Unknown Genre"}
                                 </div>
 
                             </div>
@@ -176,7 +176,7 @@ const BookDetails = () => {
                                 </h3>
 
                                 <p className="text-slate-400 leading-8">
-                                    {book.description}
+                                    {book?.description || "No description available"}
                                 </p>
                             </div>
 
@@ -222,23 +222,23 @@ const BookDetails = () => {
                     <div className="grid md:grid-cols-2 gap-6">
                         <InfoItem
                             label="Title"
-                            value={book.title}
+                            value={book?.title || "Untitled Book"}
                         />
 
                         <InfoItem
                             label="Author"
-                            value={book.author}
+                            value={book?.author || "Unknown Author"}
                         />
 
                         <InfoItem
                             label="Genre"
-                            value={book.genre}
+                            value={book?.genre || "Unknown Genre"}
                         />
 
                         <InfoItem
                             label="Publication Year"
                             value={String(
-                                book.publicationYear
+                                book?.publicationYear || "Unknown Year"
                             )}
                         />
                     </div>
