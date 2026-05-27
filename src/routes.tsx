@@ -1,0 +1,21 @@
+import { Route, Routes } from "react-router-dom";
+import Homepage from "./pages/Homepage";
+import Details from "./pages/Details";
+
+
+// Dummy book data to satisfy TypeScript for now
+
+
+const AppRoutes = () => {
+    return (
+        <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route
+                path="/book/:id"
+                element={<Details />}
+            />
+        </Routes>
+    )
+}
+
+export default AppRoutes
